@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy2nmint61ygc"]
+
+[ext_resource type="Script" path="res://APIAgent/APIAgent.gd" id="1_xdjg2"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_xdjg2")
