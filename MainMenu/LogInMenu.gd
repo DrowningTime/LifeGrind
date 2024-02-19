@@ -10,25 +10,25 @@ var http_request :  HTTPRequest
 func _ready():
 	pass
 
-func _on_email_box_text_changed():
-	email = $VBoxContainer/EmailBox.text
+func _on_email_box_text_changed(text):
+	email = text
 
-func _on_password_box_text_changed():
-	password = $VBoxContainer/PasswordBox.text
+func _on_password_box_text_changed(text):
+	password = text
 
 func _on_log_in_button_pressed():
 	var data = {"user" : {"email": email,"password": password}}
 	$APIAgent.signIn(data)
 	
-func _on_reg_email_box_text_changed():
-	email = $RegisterContainer/EmailBox.text
+func _on_reg_email_box_text_changed(text):
+	email = text
 
-func _on_reg_password_box_text_changed():
-	password = $RegisterContainer/PasswordBox.text
+func _on_reg_password_box_text_changed(text):
+	password = text
 	
-func _on_reg_username_box_text_changed():
-	password = $RegisterContainer/UsernameBox.text
+func _on_reg_username_box_text_changed(text):
+	password = text
 
 func _on_register_button_pressed():
 	var data = {"user" : {"email": email,"password": password, "username": username}}
-	$APIAgent.signIn(data)
+	$APIAgent.signUp(data)
