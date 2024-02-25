@@ -1,6 +1,5 @@
 extends Node2D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var player_scene = preload("res://Player/Player.tscn")
@@ -10,5 +9,5 @@ func _ready():
 	print("Hello " + str($Player.player_data.user.username))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass

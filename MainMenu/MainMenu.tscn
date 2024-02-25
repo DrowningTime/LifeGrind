@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdtjcyclskphr"]
+[gd_scene load_steps=2 format=3 uid="uid://bdtjcyclskphr"]
 
 [ext_resource type="Script" path="res://MainMenu/LogInMenu.gd" id="1_yef5k"]
-[ext_resource type="PackedScene" uid="uid://dy2nmint61ygc" path="res://APIAgent/APIAgent.tscn" id="2_d5c8y"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -13,34 +12,78 @@ grow_vertical = 2
 script = ExtResource("1_yef5k")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(300, 300)
+custom_minimum_size = Vector2(300, 150)
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -150.0
+offset_top = -150.0
 offset_right = 150.0
-offset_bottom = 300.0
+offset_bottom = 150.0
 grow_horizontal = 2
+grow_vertical = 2
 
-[node name="EmailBox" type="TextEdit" parent="VBoxContainer"]
+[node name="EmailBox" type="LineEdit" parent="VBoxContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
-text = "test01@email.com"
 placeholder_text = "Email Address"
+max_length = 30
 
-[node name="PasswordBox" type="TextEdit" parent="VBoxContainer"]
+[node name="PasswordBox" type="LineEdit" parent="VBoxContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
-text = "1234"
 placeholder_text = "Password"
+max_length = 20
+secret = true
 
 [node name="LogInButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Log In"
 
-[node name="APIAgent" parent="." instance=ExtResource("2_d5c8y")]
+[node name="RegisterContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -300.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="UsernameBox" type="LineEdit" parent="RegisterContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+placeholder_text = "Username"
+max_length = 20
+
+[node name="RegEmailBox" type="LineEdit" parent="RegisterContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+placeholder_text = "Email Address"
+max_length = 30
+
+[node name="PasswordBox" type="LineEdit" parent="RegisterContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+placeholder_text = "Password"
+max_length = 20
+secret = true
+
+[node name="RegisterButton" type="Button" parent="RegisterContainer"]
+layout_mode = 2
+text = "Log In"
 
 [connection signal="text_changed" from="VBoxContainer/EmailBox" to="." method="_on_email_box_text_changed"]
 [connection signal="text_changed" from="VBoxContainer/PasswordBox" to="." method="_on_password_box_text_changed"]
 [connection signal="pressed" from="VBoxContainer/LogInButton" to="." method="_on_log_in_button_pressed"]
+[connection signal="text_changed" from="RegisterContainer/UsernameBox" to="." method="_on_reg_username_box_text_changed"]
+[connection signal="text_changed" from="RegisterContainer/RegEmailBox" to="." method="_on_reg_email_box_text_changed"]
+[connection signal="text_changed" from="RegisterContainer/PasswordBox" to="." method="_on_reg_password_box_text_changed"]
+[connection signal="pressed" from="RegisterContainer/RegisterButton" to="." method="_on_register_button_pressed"]
