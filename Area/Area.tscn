@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dimc3apuopuxd"]
+
+[ext_resource type="Script" path="res://Area/Area.gd" id="1_65n30"]
+
+[node name="Area" type="Node2D"]
+script = ExtResource("1_65n30")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

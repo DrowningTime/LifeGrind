@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdtjcyclskphr"]
+[gd_scene load_steps=2 format=3 uid="uid://bdtjcyclskphr"]
 
 [ext_resource type="Script" path="res://MainMenu/LogInMenu.gd" id="1_yef5k"]
-[ext_resource type="PackedScene" uid="uid://dy2nmint61ygc" path="res://APIAgent/APIAgent.tscn" id="2_d5c8y"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -43,8 +42,6 @@ secret = true
 [node name="LogInButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Log In"
-
-[node name="APIAgent" parent="." instance=ExtResource("2_d5c8y")]
 
 [node name="RegisterContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(300, 150)

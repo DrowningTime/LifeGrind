@@ -1,12 +1,13 @@
 extends Node2D
+	
+var area_data = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var player_scene = preload("res://Player/Player.tscn")
-	var player = player_scene.instantiate()
-	player.build_player_data()
-	add_child(player)
-	print("Hello " + str($Player.player_data.user.username))
+	var text_container = $VBoxContainer
+	var area_label = Label.new()
+	area_label.text = "AREA " + area_data.name
+	text_container.add_child(area_label)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
