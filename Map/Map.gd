@@ -26,15 +26,16 @@ func _draw_areas():
 	for area in player_data.user.areas:
 		var area_scene = preload("res://Area/Area.tscn")
 		var area_node = area_scene.instantiate()
-		area_node.name = str(area.id)
+		area_node.name = str(area.name)
 		area_node.area_data = area
-		var test = area_node.get_child(0)
-		print(str(test.size.x))
-		#area_node.global_position.x = area_mapping[str(area.id)].x - area_node.rect_size / 2
-		area_node.global_position.y = area_mapping[str(area.id)].y
 		add_child(area_node)
+		var area_container_children = area_node.get_children()
+		var area_container_label = area_container_children[0].get_child(0)
+		var label_size = area_container_label.size
+		area_node.global_position.x = area_mapping[str(area.position)].x - (label_size.x / 2)
+		area_node.global_position.y = area_mapping[str(area.position)].y - (label_size.y / 2)
 
 func _determine_layout(viewport_size):
-	area_mapping = {"1": {"x": viewport_size.x/2, "y": viewport_size.y/2 }, 
-	"2": {"x": viewport_size.x/2, "y": 50 }}
+	area_mapping = {"0": {"x": viewport_size.x/2, "y": viewport_size.y/2 }, 
+	"1": {"x": viewport_size.x/2, "y": 50 }}
 	return area_mapping
