@@ -26,13 +26,14 @@ func _process(_delta):
 # Attempt to Login to backend and if successful, load the response text into var player_data
 func signIn(data):
 	var json
-	if ENV == "DEV":
-		json = JSON.stringify(test_data.login)
-	else: 
-		json = JSON.stringify(data)
 	var url = str(API + "/login")
 	var headers = PackedStringArray(["Accept: application/json","Content-Type: application/json"])
-	http_request.request(url,headers,HTTPClient.METHOD_POST,json)
+	if ENV == "DEV":
+		json = JSON.stringify(test_data.login)
+		_on_request_completed(0, 200, headers, json)
+	else: 
+		json = JSON.stringify(data)
+		http_request.request(url,headers,HTTPClient.METHOD_POST,json)
 
 # Attempt to SignUp to backend and if successful, load the response text into var player_data
 func signUp(data):
