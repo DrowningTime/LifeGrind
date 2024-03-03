@@ -29,8 +29,6 @@ func _map_subareas(color_rect):
 		for subarea in area_data.subareas:
 			add_menu_item(box_container, subarea.name)
 			
-	#return container
-	print("inside: " + str(box_container.get_size()))
 	return box_container
 
 func _create_menu_background():
