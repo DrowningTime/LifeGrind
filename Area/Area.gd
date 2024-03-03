@@ -26,15 +26,12 @@ func _display_area_menu(area_name):
 	else:
 		target_area.visible = true
 	count += 1
-	print(str(count))
-	print(target_area.visible)
 
 func _create_area_menu(area_name, button):
 	var area_menu_scene = preload("res://UI/Area_Menu.tscn")
 	var area_menu = area_menu_scene.instantiate()
 	area_menu.name = area_name
 	area_menu.area_data = area_data
-	area_menu.visible = false
 	var menu_position = button.global_position + Vector2((button.get_size().x - area_menu.get_size().x) / 2, button.get_size().y)
 	area_menu.global_position = menu_position
 	self.add_child(area_menu)

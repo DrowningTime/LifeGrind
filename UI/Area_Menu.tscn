@@ -10,32 +10,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ioopq")
-
-[node name="AreaMenuPolygon2D" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(200, 100)
-layout_mode = 0
-color = Color(0.00392157, 0.00392157, 0.00392157, 1)
-
-[node name="AreaMenuBoxContainer" type="BoxContainer" parent="AreaMenuPolygon2D"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -37.0
-offset_right = 37.0
-offset_bottom = 77.0
-grow_horizontal = 2
-vertical = true
-
-[node name="area_menu_label" type="Label" parent="AreaMenuPolygon2D/AreaMenuBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-text = "MENU"
-
-[node name="Label" type="Label" parent="AreaMenuPolygon2D/AreaMenuBoxContainer"]
-layout_mode = 2
-text = "11111111"
-
-[node name="Label2" type="Label" parent="AreaMenuPolygon2D/AreaMenuBoxContainer"]
-layout_mode = 2
-text = "222222"
