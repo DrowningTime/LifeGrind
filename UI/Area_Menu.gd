@@ -6,7 +6,7 @@ func _ready():
 	var color_rect = _create_menu_background()
 	var menu_container = _map_subareas(color_rect)
 	self.visible = false
-	await get_tree().create_timer(.1).timeout
+	await get_tree().create_timer(.1).timeout #needed to allow for menu_container to finish filling before resize
 	resize_background(color_rect,menu_container.size)
 	
 func _map_subareas(color_rect):
@@ -27,8 +27,6 @@ func _map_subareas(color_rect):
 	#add items
 	if area_data.subareas.size() != 0:
 		for subarea in area_data.subareas:
-			#var subarealabel = Label.new()
-			#$AreaMenuPolygon2D/AreaMenuBoxContainer.add_child(subarealabel)
 			add_menu_item(box_container, subarea.name)
 			
 	#return container
@@ -38,7 +36,6 @@ func _map_subareas(color_rect):
 func _create_menu_background():
 	var color_rect = ColorRect.new()
 	color_rect.color = Color(0, 0, 0)  # Set background color
-	#color_rect.set_size(Vector2(200, 100))  # Set initial size
 	add_child(color_rect)
 	return color_rect
 
