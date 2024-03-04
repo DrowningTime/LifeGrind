@@ -10,27 +10,29 @@ func _ready():
 	var area_menu_name = str(area_data.position) + "_menu"
 	var area_label = _create_area_label(text_container)
 	var area_button = _create_area_button("SELECT", area_menu_name, area_label)
-	var area_menu = _create_area_menu(text_container, area_menu_name, area_label)
-	area_button.connect("pressed", func(): _display_area_menu(area_button.get_meta("area_name")))
+	#var area_menu = _create_area_menu(text_container, area_menu_name, area_label)
+	#area_button.connect("pressed", func(): _display_area_menu(area_button.get_meta("menu_target")))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 
-func _display_area_menu(area_name):
-	var target_area = get_node(area_name)
-	if target_area.visible:
-		target_area.visible = false
-	else:
-		target_area.visible = true
-	count += 1
+#func _display_area_menu(menu_target):
+	#var target_area = get_node("Player/Map/area_menu_node")
+	#if target_area.visible:
+		#target_area.visible = false
+	#else:
+		#target_area.visible = true
+	#count += 1
+	#print(self.name)
 
 func _create_area_menu(text_container, area_name, area_label):
 	var area_menu_scene = preload("res://UI/Area_Menu.tscn")
 	var area_menu = area_menu_scene.instantiate()
 	area_menu.name = area_name
 	area_menu.area_data = area_data
+	area_menu.set_meta("menu_type", "area_menu")
 	self.add_child(area_menu)
 	var menu_position = area_label.global_position + Vector2((area_label.get_size().x - area_menu.get_size().x) / 2, area_label.get_size().y)
 	area_menu.global_position = menu_position
@@ -43,7 +45,7 @@ func _create_area_button(label, area_name, area_label):
 	button.text = "SELECT"
 	button.name = area_name + "_button"
 	self.add_child(button)
-	button.set_meta("area_name", area_name)
+	button.set_meta("menu_target", "area_menu")
 	var button_position = Vector2((area_label.get_size().x - button.get_size().x) / 2, area_label.get_size().y)
 	button.global_position = button_position
 	return button

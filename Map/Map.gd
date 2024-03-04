@@ -9,7 +9,7 @@ func _ready():
 	_determine_layout(viewport_size)
 	_welcome_message()
 	_draw_areas()
-
+	_draw_menus()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -31,8 +31,14 @@ func _draw_areas():
 		area_node.area_data = area
 		area_node.connect("ready", func(): _on_area_node_ready(area_node))
 		add_child(area_node)
+		area_node.get_node(str(area.position) + "_menu_button").connect("pressed", func(): _display_area_menu(area_node.area_data))
 		
-
+func _draw_menus():
+	var menu_scene = preload("res://UI/Area_Menu.tscn")
+	var menu_node = menu_scene.instantiate()
+	menu_node.name = "area_menu_node"
+	menu_node.connect("ready", func(): _on_menu_node_ready(menu_node))
+	add_child(menu_node)
 
 func _determine_layout(viewport_size):
 	area_mapping = {
@@ -47,16 +53,24 @@ func _determine_layout(viewport_size):
 	return area_mapping
 	
 func _on_area_node_ready(area_node):
-	print("READY:" + area_node.name)
 	var area_container_children = area_node.get_children()
 	var area_container_label = area_container_children[0].get_child(0)
 	var label_size = area_container_label.size
 	area_node.global_position.x = area_mapping[str(area_node.area_data.position)].x - (label_size.x / 2)
 	area_node.global_position.y = area_mapping[str(area_node.area_data.position)].y
-	var area_menu = get_node(str(area_node.name)+"/"+ str(area_node.area_data.position)+"_menu")
-	print(get_node(str(area_menu.get_path()) + "/" + str(area_node.area_data.position)+"_menu_background"))
-	await get_tree().create_timer(.1).timeout
-	print(get_node(str(area_menu.get_path()) + "/" + str(area_node.area_data.position)+"_menu_background").size)
-	area_menu.global_position.x = area_mapping["Menu"].x - (get_node(str(area_menu.get_path()) + "/" + str(area_node.area_data.position)+"_menu_background").size.x / 2)
+	
+func _on_menu_node_ready(menu_node):
+	var area_menu = get_node(str(menu_node.name))
+	print(get_node(str(area_menu.get_path()) + "/area_menu_background"))
+	print(get_node(str(area_menu.get_path())+ "/area_menu_background").size)
+	area_menu.global_position.x = area_mapping["Menu"].x - (get_node(str(area_menu.get_path()) + "/area_menu_background").size.x / 2)
 	area_menu.global_position.y = area_mapping["Menu"].y
-	#area_node.find_child(str(area.position) + "_menu").position.x = area_mapping["Menu"].x - (label_size.x / 2)
+
+func _display_area_menu(area_data):
+	var target_area = get_node("area_menu_node")
+	await get_node("area_menu_node").update_menu(area_data)
+	#if target_area.visible:
+		#target_area.visible = false
+	#else:
+	target_area.visible = true
+	print(area_data)
