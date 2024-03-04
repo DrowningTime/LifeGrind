@@ -73,4 +73,7 @@ func _get_test_data():
 		content.areas = JSON.parse_string(file.get_line())
 	return content
 			
+func change_scene():
+	var scene_tree = get_tree()
+	scene_tree.change_scene_to_file("res://World/World.tscn")
 				

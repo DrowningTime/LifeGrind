@@ -32,6 +32,7 @@ func _map_subareas(color_rect):
 func _create_menu_background():
 	var color_rect = ColorRect.new()
 	color_rect.color = Color(0, 0, 0)  # Set background color
+	color_rect.name = str(area_data.position)+ "_menu_background"
 	add_child(color_rect)
 	return color_rect
 
