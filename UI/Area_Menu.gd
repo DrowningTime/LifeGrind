@@ -12,8 +12,6 @@ func _ready():
 func _map_subareas(color_rect):
 	var box_container = BoxContainer.new()
 	box_container.vertical=true
-	box_container.set_alignment(1)
-	box_container.size_flags_vertical = BoxContainer.SIZE_EXPAND_FILL  # Set vertical size flags
 	color_rect.add_child(box_container)
 	
 	#add menu title

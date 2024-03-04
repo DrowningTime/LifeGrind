@@ -37,11 +37,11 @@ func _draw_areas():
 
 func _determine_layout(viewport_size):
 	area_mapping = {
-	"0": {"x": viewport_size.x/2, "y": viewport_size.y/2 }, 
+	"0": {"x": viewport_size.x/2, "y": viewport_size.y/2 - 100}, 
 	"1": {"x": viewport_size.x/2, "y": 50 },
 	"2": {"x": viewport_size.x - 50, "y": viewport_size.y/3 },
 	"3": {"x": viewport_size.x - 50, "y": 2 * (viewport_size.y/3) },
-	"4": {"x": viewport_size.x/2, "y": viewport_size.y - 100 },
+	"4": {"x": viewport_size.x/2, "y": viewport_size.y - 200 },
 	"5": {"x": 50, "y": 2*(viewport_size.y/3) },
 	"6": {"x": 50, "y": viewport_size.y/3 }}
 	return area_mapping
