@@ -3,10 +3,217 @@
 [ext_resource type="Script" path="res://UI/Area_Menu.gd" id="1_ioopq"]
 
 [node name="AreaMenu" type="Control"]
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
 script = ExtResource("1_ioopq")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AreaMenuBackground" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AreaMenuContainer" type="VBoxContainer" parent="MarginContainer"]
+z_index = 1
+layout_mode = 2
+
+[node name="AreaMenuHBoxContainer" type="HBoxContainer" parent="MarginContainer/AreaMenuContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SubareaNameVBoxContainer" type="VBoxContainer" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer"]
+layout_mode = 2
+
+[node name="AreaMenuNameLabel" type="Label" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaNameVBoxContainer"]
+layout_mode = 2
+text = "Area Name Menu:
+"
+uppercase = true
+
+[node name="AreaMenuSubArea1Label" type="Label" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaNameVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "SubArea1:
+"
+max_lines_visible = 1
+
+[node name="AreaMenuSubArea2Label" type="Label" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaNameVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "SubArea2:
+"
+max_lines_visible = 1
+
+[node name="AreaMenuSubArea3Label" type="Label" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaNameVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "SubArea3:
+"
+max_lines_visible = 1
+
+[node name="AreaMenuSubArea4Label" type="Label" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaNameVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "SubArea4:
+"
+max_lines_visible = 1
+
+[node name="AreaMenuSubArea5Label" type="Label" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaNameVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "SubArea5:
+"
+max_lines_visible = 1
+
+[node name="AreaMenuSubArea6Label" type="Label" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaNameVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "SubArea6:
+"
+max_lines_visible = 1
+
+[node name="SubareaValueVBoxContainer" type="VBoxContainer" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer"]
+layout_mode = 2
+
+[node name="AreaMenuNameValue" type="Label" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaValueVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "1
+"
+uppercase = true
+
+[node name="AreaMenuSubArea1Value" type="Label" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaValueVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "Value 1"
+
+[node name="AreaMenuSubArea2Value" type="Label" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaValueVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "Value 2
+"
+
+[node name="AreaMenuSubArea3Value" type="Label" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaValueVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "Value 3
+"
+
+[node name="AreaMenuSubArea4Value" type="Label" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaValueVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "Value 4"
+
+[node name="AreaMenuSubArea5Value" type="Label" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaValueVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "Value 5"
+
+[node name="AreaMenuSubArea6Value" type="Label" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaValueVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "Value 6"
+
+[node name="SubareaUpdateVBoxContainer" type="VBoxContainer" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer"]
+layout_mode = 2
+
+[node name="AreaMenuSubAreaUpdateLabel" type="Label" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaUpdateVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="AreaMenuSubArea1UpdateButton" type="Button" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaUpdateVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "SA Button1"
+
+[node name="AreaMenuSubArea2UpdateButton" type="Button" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaUpdateVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "SA Button2"
+
+[node name="AreaMenuSubArea3UpdateButton" type="Button" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaUpdateVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "SA Button3"
+
+[node name="AreaMenuSubArea4UpdateButton" type="Button" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaUpdateVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "SA Button4"
+
+[node name="AreaMenuSubArea5UpdateButton" type="Button" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaUpdateVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "SA Button5"
+
+[node name="AreaMenuSubArea6UpdateButton" type="Button" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaUpdateVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "SA Button6"
+
+[node name="SubareaOpenVBoxContainer" type="VBoxContainer" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="AreaMenuSubAreaOpenLabel" type="Label" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaOpenVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="AreaMenuSubArea1OpenButton" type="Button" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaOpenVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "SA Button1"
+
+[node name="AreaMenuSubArea2OpenButton" type="Button" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaOpenVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "SA Button2"
+
+[node name="AreaMenuSubArea3OpenButton" type="Button" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaOpenVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "SA Button3"
+
+[node name="AreaMenuSubArea4OpenButton" type="Button" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaOpenVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "SA Button4"
+
+[node name="AreaMenuSubArea5OpenButton" type="Button" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaOpenVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "SA Button5"
+
+[node name="AreaMenuSubArea6OpenButton" type="Button" parent="MarginContainer/AreaMenuContainer/AreaMenuHBoxContainer/SubareaOpenVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "SA Button6"
+
+[node name="AreaMenuCloseButtonContainer" type="VBoxContainer" parent="MarginContainer/AreaMenuContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="AreaMenuCloseButton" type="Button" parent="MarginContainer/AreaMenuContainer/AreaMenuCloseButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Close"
+
+[connection signal="pressed" from="MarginContainer/AreaMenuContainer/AreaMenuCloseButtonContainer/AreaMenuCloseButton" to="." method="_on_area_menu_close_button_pressed"]

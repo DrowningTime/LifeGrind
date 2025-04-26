@@ -15,8 +15,7 @@ func _ready():
 	add_child(http_request)
 	http_request.connect("request_completed",Callable(self,"_on_request_completed"))
 	test_data = _get_test_data()
-	print(test_data.login)
-	print(test_data.areas)
+	print(test_data)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,7 +28,7 @@ func signIn(data):
 	var url = str(API + "/login")
 	var headers = PackedStringArray(["Accept: application/json","Content-Type: application/json"])
 	if ENV == "DEV":
-		json = JSON.stringify(test_data.login)
+		json = JSON.stringify(test_data)
 		_on_request_completed(0, 200, headers, json)
 	else: 
 		json = JSON.stringify(data)
@@ -47,7 +46,7 @@ func signUp(data):
 #USING TEST DATA!
 func _on_request_completed(result, response_code, headers, body):
 	if ENV == "DEV":
-		APIAgent.player_data = test_data.areas
+		APIAgent.player_data = test_data
 		var scene_tree = get_tree()
 		scene_tree.change_scene_to_file("res://World/World.tscn")
 	elif result != 0:
@@ -69,8 +68,10 @@ func _get_test_data():
 	var file = FileAccess.open(TESTDATA_PATH, FileAccess.READ)
 	var content = {}
 	while !file.eof_reached():
-		content.login = JSON.parse_string(file.get_line())
-		content.areas = JSON.parse_string(file.get_line())
+		content = JSON.parse_string(file.get_line())
 	return content
 			
+func change_scene():
+	var scene_tree = get_tree()
+	scene_tree.change_scene_to_file("res://World/World.tscn")
 				
