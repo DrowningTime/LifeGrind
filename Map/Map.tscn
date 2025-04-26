@@ -628,5 +628,3 @@ layer_0/tile_data = PackedInt32Array(0, 2, 0, 1, 2, 0, 2, 2, 0, 65538, 2, 0, 655
 [node name="GreetingMessageText" type="Label" parent="GreetingMessageBox"]
 layout_mode = 2
 text = "Hello test1"
-
-[node name="Container" type="Container" parent="."]
