@@ -1,11 +1,14 @@
 extends Node
 
+#loaded account data state objct
 var player_data = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 	
+#Fetch player data and preload map scene based off of it
+#add map object as child player
 func build_player_data():
 	player_data = APIAgent.player_data
 	var map_scene = preload("res://Map/Map.tscn")
