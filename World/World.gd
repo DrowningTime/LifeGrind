@@ -6,7 +6,8 @@ func _ready():
 	var player = player_scene.instantiate()
 	player.build_player_data()
 	add_child(player)
-	print("Hello " + str($Player.player_data.user.username))
+	var greeting_message_box = get_node("/root/World/Player/Map/GreetingMessageBox/GreetingMessageText")
+	greeting_message_box.text = ("Hello " + str($Player.player_data.user.username))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

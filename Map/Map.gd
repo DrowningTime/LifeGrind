@@ -62,6 +62,7 @@ func _display_area_menu(area_position):
 	await get_node("area_menu_node").update_menu(area_data)
 	display_area.visible = true
 	
+	
 func _hide_area_menu():
 	var display_area = get_node("area_menu_node")
 	display_area.visible = false
